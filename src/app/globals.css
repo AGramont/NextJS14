@@ -25,3 +25,7 @@
   font-weight: 600;
   text-decoration: none;
 }
+
+.app-link a.active-link {
+  color: #c7242d;
+}
