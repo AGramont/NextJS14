@@ -9,12 +9,12 @@ export const metadata = {
 
 export default async function ListPage() { 
 
-    return <main>
+    return <>
         <h1>People - Suspense</h1>
         <hr />
 
         <Suspense fallback={<PeopleWait />}>
             <PeopleList />
         </Suspense>
-    </main>
+    </>
 }

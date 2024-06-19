@@ -1,3 +1,4 @@
+import SubTitle from "@/components/format/sub-title";
 import { getPeople } from "@/lib/peopleDB"
 
 export const metadata = {
@@ -9,9 +10,8 @@ export default async function ListPage() {
 
     const people = await getPeople();    
 
-    return <main>
-        <h1>People</h1>
-        <hr />
+    return <>
+        <SubTitle subTitle="People"/>
 
         <table>
             <thead>
@@ -37,5 +37,5 @@ export default async function ListPage() {
                 ))}
             </tbody>
         </table>
-    </main>
+    </>
 }

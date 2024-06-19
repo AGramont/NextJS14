@@ -12,7 +12,8 @@ export default function MainHeader() {
     console.log("Pathname: ", pathname);
 
     const links = [
-        { label: "People", href: "/people"}
+        { label: "People", href: "/people"},
+        { label: "About", href: "/about"}
     ]
 
     return (
