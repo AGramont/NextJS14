@@ -1,7 +1,7 @@
 import { getPeople } from "@/lib/peopleDB"
 
 export const metadata = {
-    title: "List of People",
+    title: "People",
     description: "A list of people using the scoped loading page",
   };
 
