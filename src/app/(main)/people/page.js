@@ -1,5 +1,7 @@
 import SubTitle from "@/components/format/sub-title";
+import PeopleList from "@/components/people/people-list";
 import { getPeople } from "@/lib/peopleDB"
+import Link from "next/link";
 
 export const metadata = {
     title: "People",
@@ -8,34 +10,16 @@ export const metadata = {
 
 export default async function ListPage() {
 
+    // This is server-side
     const people = await getPeople();    
 
     return <>
-        <SubTitle subTitle="People"/>
+        <SubTitle subTitle="People - Loading Boundary"/>
 
-        <table>
-            <thead>
-                <tr>
-                    <td>Key</td>
-                    <td>First Name</td>
-                    <td>Last Name</td>
-                    <td>Age</td>
-                    <td>Email</td>
-                    <td>Phone</td>
-                </tr>
-            </thead>
-            <tbody>
-                { people.map(p => (
-                    <tr key={p.key}>
-                        <td>{p.key}</td>
-                        <td>{p.firstname}</td>
-                        <td>{p.lastname}</td>
-                        <td>{p.age}</td>
-                        <td>{p.email}</td>
-                        <td>{p.phone}</td>
-                    </tr>
-                ))}
-            </tbody>
-        </table>
+        <PeopleList />
+        <div class="standard-divider"></div>
+        <div>
+            <Link href="/people-suspense" className="call-to-action">View Suspense Version</Link>
+        </div>
     </>
 }

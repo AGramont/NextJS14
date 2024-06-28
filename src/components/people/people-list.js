@@ -3,6 +3,7 @@ import Link from "next/link";
 
 export default async function PeopleList() {
 
+    // This is still server-side
     const people = await getPeople();   
 
     return (

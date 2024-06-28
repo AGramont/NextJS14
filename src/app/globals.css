@@ -3,6 +3,7 @@
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+  --action-color: #c7242d;
 }
 
 * {
@@ -22,8 +23,24 @@ h1 {
   font-size: 20px;
 }
 
-.app-link {
-    
+a {
+  color: black;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+a.call-to-action {
+  background-color: var(--action-color);
+  font-size: 18px;
+  line-height: 30px;
+  padding: 5.4px 18px;
+  color: white;
+  font-weight: 500;
+  border: 2px solid var(--action-color);
 }
 
 .app-link ul {
@@ -31,18 +48,10 @@ h1 {
   display: flex;
   gap: 30px;
 }
-.app-link a {
-  color: black;
-  font-weight: 600;
-  text-decoration: none;
-}
 
-.app-link a:hover {
-  opacity: 0.7;
-}
 
 .app-link a.active-link {
-  color: #c7242d;
+  color: var(--action-color);
 }
 
 .standard-divider {

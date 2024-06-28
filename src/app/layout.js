@@ -1,14 +1,9 @@
-//import { Inter } from "next/font/google";
 //👇 Import Open Sans font
 import { Open_Sans, Montserrat } from 'next/font/google'
 import classNames from 'classnames';
 import classes from './layout.module.css';
 import "./globals.css";
 import MainHeader from '@/components/header/main-header';
-
-
-//const inter = Inter({ subsets: ["latin"] });
-
 
 //👇 Configure our font object
 const openSans = Open_Sans({

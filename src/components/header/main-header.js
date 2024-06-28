@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
 export default function MainHeader() {
 
     const pathname = usePathname();
-    console.log("Pathname: ", pathname);
+    // console.log("Pathname: ", pathname);
 
     const links = [
         { label: "People", href: "/people"},
@@ -26,9 +26,9 @@ export default function MainHeader() {
                     <ul>
                         {
                             links.map(link => {
-                                console.log("link: ", link);
+                                // console.log("link: ", link);
                                 const thisClassName = pathname.startsWith(link.href) ? "active-link" : "";
-                                console.log("thisClassName: ", thisClassName);
+                                // console.log("thisClassName: ", thisClassName);
                                 return <li key={link.href}>
                                     <Link href={link.href} className={thisClassName}>{link.label}</Link>
                                 </li>
