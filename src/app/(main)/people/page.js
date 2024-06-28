@@ -17,7 +17,7 @@ export default async function ListPage() {
         <SubTitle subTitle="People - Loading Boundary"/>
 
         <PeopleList />
-        <div class="standard-divider"></div>
+        <div className="standard-divider"></div>
         <div>
             <Link href="/people-suspense" className="call-to-action">View Suspense Version</Link>
         </div>
