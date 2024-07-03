@@ -34,7 +34,7 @@ export default async function PeopleList() {
                         <td>{p.email}</td>
                         <td>{p.phone}</td>
                         <td>
-                            <DeletePersonAction />
+                            <DeletePersonAction personId={p.id} />
                         </td>
                     </tr>
                 ))}

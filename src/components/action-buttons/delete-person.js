@@ -1,10 +1,15 @@
 "use client";
 import styles from "./delete-person.module.css";
+import { deletePerson } from "@/lib/actions/people-actions";
+import { useAction } from "next-safe-action/hooks";
 
-export default function DeleteUserActionButton() {
+export default function DeleteUserActionButton({personId}) {
 
-    const deleteHandler = () => {
-        console.log("delete");
+    const { execute, result, isExecuting } = useAction(deletePerson);
+
+    const deleteHandler = async () => {
+        console.log("delete person ", personId);
+        execute(personId);
     }
 
     return (
