@@ -19,7 +19,7 @@ export default function MainHeader() {
     return (
         <div className={styles.mainHeader}>
             <Link href="/">
-                <Image src={RBALogo.src} alt="RBA Logo" height={43.1953} width={128.219} />
+                <Image src={RBALogo.src} alt="RBA Logo" height={43.1953} width={128.219} priority />
              </Link>
             <div>
                 <nav className='app-link'>

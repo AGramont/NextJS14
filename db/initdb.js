@@ -1,5 +1,6 @@
-const sql = require('better-sqlite3');
-const db = sql('../../people.db')
+const Database = require('better-sqlite3');
+const db = new Database('../people.db', { verbose: console.log });
+//const db = sql('../../people.db')
 
 const people = [
     {
@@ -8,7 +9,8 @@ const people = [
       lastName: "Doe",
       age: 30,
       email: "john.doe@example.com",
-      phoneNumber: "234567890"
+      phoneNumber: "234567890",
+      active: 1
     },
     {
       key: 2,
@@ -16,7 +18,8 @@ const people = [
       lastName: "Smith",
       age: 25,
       email: "jane.smith@example.com",
-      phoneNumber: "987654321"
+      phoneNumber: "987654321",
+      active: 1
     },
     {
       key: 3,
@@ -24,7 +27,8 @@ const people = [
       lastName: "Johnson",
       age: 35,
       email: "michael.johnson@example.com",
-      phoneNumber: "122334455"
+      phoneNumber: "122334455",
+      active: 1
     },
     {
       key: 4,
@@ -32,7 +36,8 @@ const people = [
       lastName: "Brown",
       age: 28,
       email: "emily.brown@example.com",
-      phoneNumber: "654321897"
+      phoneNumber: "654321897",
+      active: 1
     },
     {
       key: 5,
@@ -40,7 +45,8 @@ const people = [
       lastName: "Davis",
       age: 32,
       email: "william.davis@example.com",
-      phoneNumber: "765432987"
+      phoneNumber: "765432987",
+      active: 1
     },
     {
       key: 6,
@@ -48,7 +54,8 @@ const people = [
       lastName: "Martinez",
       age: 27,
       email: "sophia.martinez@example.com",
-      phoneNumber: "876543210"
+      phoneNumber: "876543210",
+      active: 1
     },
     {
       key: 7,
@@ -56,7 +63,8 @@ const people = [
       lastName: "Garcia",
       age: 29,
       email: "james.garcia@example.com",
-      phoneNumber: "987654321"
+      phoneNumber: "987654321",
+      active: 1
     },
     {
       key: 8,
@@ -64,7 +72,8 @@ const people = [
       lastName: "Wilson",
       age: 31,
       email: "olivia.wilson@example.com",
-      phoneNumber: "543219876"
+      phoneNumber: "543219876",
+      active: 1
     },
     {
       key: 9,
@@ -72,7 +81,8 @@ const people = [
       lastName: "Rodriguez",
       age: 26,
       email: "benjamin.rodriguez@example.com",
-      phoneNumber: "324567890"
+      phoneNumber: "324567890",
+      active: 1
     },
     {
       key: 10,
@@ -80,7 +90,8 @@ const people = [
       lastName: "Lopez",
       age: 33,
       email: "ava.lopez@example.com",
-      phoneNumber: "987612345"
+      phoneNumber: "987612345",
+      active: 1
     },
     {
       key: 11,
@@ -88,7 +99,8 @@ const people = [
       lastName: "Hernandez",
       age: 24,
       email: "jacob.hernandez@example.com",
-      phoneNumber: "654987321"
+      phoneNumber: "654987321",
+      active: 1
     },
     {
       key: 12,
@@ -96,7 +108,8 @@ const people = [
       lastName: "Gonzalez",
       age: 30,
       email: "mia.gonzalez@example.com",
-      phoneNumber: "890765432"
+      phoneNumber: "890765432",
+      active: 1
     }
   ];
   
@@ -108,7 +121,8 @@ const people = [
         lastname TEXT NOT NULL,
         age INTEGER NOT NULL,
         email TEXT,
-        phone TEXT
+        phone TEXT,
+        active INTEGER NOT NULL
     )
     `).run();
 
@@ -122,7 +136,8 @@ const people = [
             @lastName,
             @age,
             @email,
-            @phoneNumber
+            @phoneNumber,
+            @active
         )`)
     for (const person of people) {
         statement.run(person);
