@@ -35,7 +35,7 @@ a:hover {
   opacity: 0.7;
 }
 
-a.call-to-action {
+a.call-to-action, button.call-to-action {
   background-color: var(--action-color);
   font-size: 18px;
   line-height: 30px;
@@ -71,4 +71,34 @@ table th {
 
 table td {
   padding: var(--table-padding);
+}
+
+.form-group {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 32px;
+}
+
+.form-group label {
+  width: 100%;
+  display: block;
+  font-weight: 700;
+  opacity: 0.8;
+  margin-bottom: 8px;
+}
+
+.form-group label::after {
+  content: '*';
+  color: var(--action-color)
+}
+
+.form-group input {
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  padding: 4px;
+}
+
+.form-group input[type="number"] {
+  width: 30%;
 }

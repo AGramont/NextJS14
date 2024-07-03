@@ -24,7 +24,7 @@ export default async function PeopleList() {
                 { people.map(p => (
                     <tr key={p.key}>
                         <td>
-                            <Link href={`/items-suspense/${p.key}`}>
+                            <Link href={`/people/${p.key}`}>
                                 {p.key}
                             </Link>
                             </td>
