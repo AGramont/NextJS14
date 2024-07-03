@@ -17,7 +17,7 @@ export default async function ListPage() {
         <Suspense fallback={<PeopleWait />}>
             <PeopleList />
         </Suspense>
-        <div class="standard-divider"></div>
+        <div className="standard-divider"></div>
         <div>
             <Link href="/people" className="call-to-action">View Load Boundary Version</Link>
         </div>

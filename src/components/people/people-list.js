@@ -1,5 +1,6 @@
 import { getPeople } from "@/lib/peopleDB";
 import Link from "next/link";
+import DeletePersonAction from "@/components/action-buttons/delete-person"
 
 export default async function PeopleList() {
 
@@ -10,12 +11,13 @@ export default async function PeopleList() {
         <table>
             <thead>
                 <tr>
-                    <td>Key</td>
-                    <td>First Name</td>
-                    <td>Last Name</td>
-                    <td>Age</td>
-                    <td>Email</td>
-                    <td>Phone</td>
+                    <th>Key</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Age</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -31,6 +33,9 @@ export default async function PeopleList() {
                         <td>{p.age}</td>
                         <td>{p.email}</td>
                         <td>{p.phone}</td>
+                        <td>
+                            <DeletePersonAction />
+                        </td>
                     </tr>
                 ))}
             </tbody>

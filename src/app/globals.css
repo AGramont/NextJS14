@@ -4,6 +4,8 @@
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
   --action-color: #c7242d;
+  --danger-color: red;
+  --table-padding: 4px;
 }
 
 * {
@@ -60,4 +62,13 @@ a.call-to-action {
   height: 23px;
   border-bottom: 1px solid black;
   margin-bottom: 23px;
+}
+
+table th {
+  padding: var(--table-padding);
+  border-bottom: 1px solid black;
+}
+
+table td {
+  padding: var(--table-padding);
 }
