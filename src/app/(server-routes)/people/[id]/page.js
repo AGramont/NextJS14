@@ -9,7 +9,6 @@ export default function EditPersonPage() {
     const {id} = useParams();
     
     const subTitle = useMemo(() => {
-        console.log("rendering subtitle");
         const title = id === 'new' ? "People - Add New Person" : "People - Edit Person";
         return (<SubTitle subTitle={title}/>)
     }, [id])

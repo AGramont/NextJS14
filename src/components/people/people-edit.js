@@ -1,27 +1,35 @@
 "use client";
+import { useForm } from 'react-hook-form';
 
 export default function PeopleEdit({id}) {
+
+    const { register, handleSubmit } = useForm();
+
+    const onSubmit = (data) => {
+        console.log("Submitting: ", data);
+    }
+
     return <>
-    <form>
+    <form onSubmit={handleSubmit(onSubmit)}>
         <div className="form-group">
             <label>First Name</label>
-            <input />
+            <input {...register("firstname")} />
         </div>
         <div className="form-group">
             <label>Last Name</label>
-            <input />
+            <input {...register("lastname")}  />
         </div>
         <div className="form-group">
             <label>Age</label>
-            <input type="number" min="1" max="120" />
+            <input {...register("age")}  type="number" min="1" max="120" />
         </div>
         <div className="form-group">
             <label>Email</label>
-            <input />
+            <input {...register("email")}  />
         </div>
         <div className="form-group">
             <label>Phone Number</label>
-            <input />
+            <input {...register("phonenumber")}  />
         </div>
         <div>
             <button type="submit" className="call-to-action">{
