@@ -5,7 +5,10 @@
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
   --action-color: #c7242d;
   --danger-color: red;
+  --danger-color-light: rgb(253, 82, 82);
   --table-padding: 4px;
+  --font-size-action: 18px;
+  --font-size-inline-action: 14px;
 }
 
 * {
@@ -35,9 +38,42 @@ a:hover {
   opacity: 0.7;
 }
 
+a.as-button {
+  font-size: var(--font-size-inline-action);
+  padding: 2px 8px;
+  font-weight: 500;
+  border: 2px solid black;
+  cursor: pointer;
+  background-color: white;
+}
+
+a.as-button:hover {
+  opacity: 1;
+  color: white;
+  background-color: rgb(50, 49, 49);
+}
+
+button.danger {  
+  font-size: var(--font-size-inline-action);
+  padding: 2px 8px;
+  font-weight: 500;
+  border: 2px solid black;
+  cursor: pointer;
+  color: white;
+  background-color: var(--danger-color);
+}
+button.danger:hover {
+  background-color: var(--danger-color-light);
+}
+
+.button-ribbon-left {
+  display: flex;
+  gap: 8px;
+}
+
 a.call-to-action, button.call-to-action {
   background-color: var(--action-color);
-  font-size: 18px;
+  font-size: var(--font-size-action);
   line-height: 30px;
   padding: 5.4px 18px;
   color: white;
@@ -64,6 +100,10 @@ a.call-to-action, button.call-to-action {
   margin-bottom: 23px;
 }
 
+table {
+  border-collapse: collapse;
+}
+
 table th {
   padding: var(--table-padding);
   border-bottom: 1px solid black;
@@ -71,6 +111,10 @@ table th {
 
 table td {
   padding: var(--table-padding);
+}
+
+tbody tr:hover {
+  background-color: rgb(241, 240, 240);
 }
 
 .form-group {

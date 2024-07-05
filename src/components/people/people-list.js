@@ -11,7 +11,6 @@ export default async function PeopleList() {
         <table>
             <thead>
                 <tr>
-                    <th>Key</th>
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Age</th>
@@ -22,19 +21,15 @@ export default async function PeopleList() {
             </thead>
             <tbody>
                 { people.map(p => (
-                    <tr key={p.key}>
-                        <td>
-                            <Link href={`/people/${p.key}`}>
-                                {p.key}
-                            </Link>
-                            </td>
+                    <tr key={p.id}>
                         <td>{p.firstname}</td>
                         <td>{p.lastname}</td>
                         <td>{p.age}</td>
                         <td>{p.email}</td>
                         <td>{p.phone}</td>
-                        <td>
+                        <td className="button-ribbon-left">
                             <DeletePersonAction personId={p.id} />
+                            <Link href={`/people/${p.id}`} className="as-button">Edit</Link>
                         </td>
                     </tr>
                 ))}

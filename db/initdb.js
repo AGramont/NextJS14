@@ -4,7 +4,6 @@ const db = new Database('../people.db', { verbose: console.log });
 
 const people = [
     {
-      key: 1,
       firstName: "John",
       lastName: "Doe",
       age: 30,
@@ -13,7 +12,6 @@ const people = [
       active: 1
     },
     {
-      key: 2,
       firstName: "Jane",
       lastName: "Smith",
       age: 25,
@@ -22,7 +20,6 @@ const people = [
       active: 1
     },
     {
-      key: 3,
       firstName: "Michael",
       lastName: "Johnson",
       age: 35,
@@ -31,7 +28,6 @@ const people = [
       active: 1
     },
     {
-      key: 4,
       firstName: "Emily",
       lastName: "Brown",
       age: 28,
@@ -40,7 +36,6 @@ const people = [
       active: 1
     },
     {
-      key: 5,
       firstName: "William",
       lastName: "Davis",
       age: 32,
@@ -49,7 +44,6 @@ const people = [
       active: 1
     },
     {
-      key: 6,
       firstName: "Sophia",
       lastName: "Martinez",
       age: 27,
@@ -58,7 +52,6 @@ const people = [
       active: 1
     },
     {
-      key: 7,
       firstName: "James",
       lastName: "Garcia",
       age: 29,
@@ -67,7 +60,6 @@ const people = [
       active: 1
     },
     {
-      key: 8,
       firstName: "Olivia",
       lastName: "Wilson",
       age: 31,
@@ -76,7 +68,6 @@ const people = [
       active: 1
     },
     {
-      key: 9,
       firstName: "Benjamin",
       lastName: "Rodriguez",
       age: 26,
@@ -85,7 +76,6 @@ const people = [
       active: 1
     },
     {
-      key: 10,
       firstName: "Ava",
       lastName: "Lopez",
       age: 33,
@@ -94,7 +84,6 @@ const people = [
       active: 1
     },
     {
-      key: 11,
       firstName: "Jacob",
       lastName: "Hernandez",
       age: 24,
@@ -103,7 +92,6 @@ const people = [
       active: 1
     },
     {
-      key: 12,
       firstName: "Mia",
       lastName: "Gonzalez",
       age: 30,
@@ -116,7 +104,6 @@ const people = [
   db.prepare(`
     CREATE TABLE IF NOT EXISTS people (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        key INTEGER NOT NULL UNIQUE,
         firstname TEXT NOT NULL,
         lastname TEXT NOT NULL,
         age INTEGER NOT NULL,
@@ -131,7 +118,6 @@ const people = [
     const statement = db.prepare(`
         INSERT INTO people VALUES (
             null,
-            @key,
             @firstName,
             @lastName,
             @age,
