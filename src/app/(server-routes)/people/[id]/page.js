@@ -1,20 +1,29 @@
 "use client";
-
 import SubTitle from "@/components/format/sub-title";
 import PeopleEdit from "@/components/people/people-edit";
+import ViewPerson from "@/components/people/people-view";
+import { getPerson } from "@/lib/db/peopleDB";
 import { useParams } from "next/navigation";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 
-export default function EditPersonPage() {
+export default function ViewPersonPage() {
     const {id} = useParams();
-    
-    const subTitle = useMemo(() => {
-        const title = id === 'new' ? "People - Add New Person" : "People - Edit Person";
-        return (<SubTitle subTitle={title}/>)
-    }, [id])
+    const [person, setPerson] = useState(null);
+
+    useEffect(() => {
+
+        const load = async () => {
+            const person = await getPerson(id);
+            setPerson(person);
+            console.log("person: ", person);
+        }
+
+        load();
+
+    }, [])
 
     return <>
-        {subTitle}
-        <PeopleEdit id={id}/>
+        <SubTitle subTitle="People - Viewer"/>
+        {person && <ViewPerson person={person} />}
     </>
 }

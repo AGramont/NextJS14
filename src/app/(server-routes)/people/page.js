@@ -1,6 +1,6 @@
 import SubTitle from "@/components/format/sub-title";
 import PeopleList from "@/components/people/people-list";
-import { getPeople } from "@/lib/peopleDB"
+import { getPeople } from "@/lib/db/peopleDB"
 import Link from "next/link";
 
 export const metadata = {

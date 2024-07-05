@@ -154,3 +154,19 @@ tbody tr:hover {
 .form-group .text-danger {
   margin-top: 8px;
 }
+
+.display-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 16px;
+}
+
+.display-group label {
+  width: 100%;
+  display: block;
+  font-weight: 700;
+  opacity: 0.8;
+  margin-bottom: 8px;
+}

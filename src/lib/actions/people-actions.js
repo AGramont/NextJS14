@@ -4,7 +4,7 @@
  */
 
 import { createSafeActionClient } from "next-safe-action";
-import { deletePerson as deletePersonDB } from "@/lib/peopleDB";
+import { deletePerson as deletePersonDB } from "@/lib/db/peopleDB";
 import { z } from "zod";
 import { revalidatePath } from "next/cache";
 
