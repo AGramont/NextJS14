@@ -1,5 +1,4 @@
 "use client";
-import styles from "./delete-person.module.css";
 import { deletePerson } from "@/lib/actions/people-actions";
 import { useAction } from "next-safe-action/hooks";
 

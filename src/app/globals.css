@@ -120,7 +120,7 @@ tbody tr:hover {
 .form-group {
   width: 100%;
   max-width: 400px;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
 }
 
 .form-group label {
