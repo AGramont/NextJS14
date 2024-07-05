@@ -28,6 +28,10 @@ h1 {
   font-size: 20px;
 }
 
+.text-danger {
+  color: red;
+}
+
 a {
   color: black;
   font-weight: 600;
@@ -131,7 +135,7 @@ tbody tr:hover {
   margin-bottom: 8px;
 }
 
-.form-group label::after {
+.form-group label.required::after {
   content: '*';
   color: var(--action-color)
 }
@@ -145,4 +149,8 @@ tbody tr:hover {
 
 .form-group input[type="number"] {
   width: 30%;
+}
+
+.form-group .text-danger {
+  margin-top: 8px;
 }
