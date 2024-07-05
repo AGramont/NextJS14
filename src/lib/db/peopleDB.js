@@ -1,5 +1,4 @@
-"use server";
-//import 'server-only';
+import 'server-only';
 import sql from 'better-sqlite3';
 
 const db = sql('people.db');

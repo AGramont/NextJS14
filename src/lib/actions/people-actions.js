@@ -18,9 +18,8 @@ export const deletePerson = actionClient.schema(deleteSchema).action(async ({par
 })
 
 const getSchema = z.number();
-export const getPerson = actionClient.schema(getSchema).action(async ({parsedInput}) => {
+export const getPersonAction = actionClient.schema(getSchema).action(async ({parsedInput}) => {
     console.log(`getting person ${parsedInput} on server`);
     const result = await getPersonDB(parsedInput);
-    revalidatePath('/people');
     return result;
 })

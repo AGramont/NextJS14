@@ -1,10 +1,10 @@
 "use client";
 import SubTitle from "@/components/format/sub-title";
-import PeopleEdit from "@/components/people/people-edit";
 import ViewPerson from "@/components/people/people-view";
-import { getPerson } from "@/lib/db/peopleDB";
 import { useParams } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
+import { useAction } from "next-safe-action/hooks";
+import { getPersonAction } from "@/lib/actions/people-actions";
 
 export default function ViewPersonPage() {
     const {id} = useParams();
@@ -12,13 +12,10 @@ export default function ViewPersonPage() {
 
     useEffect(() => {
 
-        const load = async () => {
-            const person = await getPerson(id);
-            setPerson(person);
-            console.log("person: ", person);
-        }
-
-        load();
+        getPersonAction(Number(id)).then(result => {
+            console.log("RESULT: ", result.data);
+            setPerson(result.data);
+        })
 
     }, [])
 
