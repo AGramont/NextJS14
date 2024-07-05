@@ -13,9 +13,6 @@ export default async function PeopleList() {
                 <tr>
                     <th>First Name</th>
                     <th>Last Name</th>
-                    <th>Age</th>
-                    <th>Email</th>
-                    <th>Phone</th>
                     <th></th>
                 </tr>
             </thead>
@@ -24,12 +21,8 @@ export default async function PeopleList() {
                     <tr key={p.id}>
                         <td>{p.firstname}</td>
                         <td>{p.lastname}</td>
-                        <td>{p.age}</td>
-                        <td>{p.email}</td>
-                        <td>{p.phone}</td>
-                        <td className="button-ribbon-left">
-                            <DeletePersonAction personId={p.id} />
-                            <Link href={`/people/${p.id}`} className="as-button">Edit</Link>
+                        <td>
+                            <Link href={`/people/${p.id}`} className="as-button">View</Link>
                         </td>
                     </tr>
                 ))}

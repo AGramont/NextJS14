@@ -24,6 +24,6 @@ export default function ViewPersonPage() {
 
     return <>
         <SubTitle subTitle="People - Viewer"/>
-        {person && <ViewPerson person={person} />}
+        {person ? <ViewPerson person={person} /> : <p>Loading...</p>}
     </>
 }

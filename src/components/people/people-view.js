@@ -22,5 +22,9 @@ export default function ViewPerson({person}) {
             <label>Phone Number</label>
             <span>{person.phone ?? "[EMPTY]"}</span>
         </div>
+        <div className="button-ribbon-left">
+            <button className="danger">Delete</button>
+            <button>Edit</button>
+        </div>
     </>
 }

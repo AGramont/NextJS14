@@ -6,7 +6,7 @@
   --action-color: #c7242d;
   --danger-color: red;
   --danger-color-light: rgb(253, 82, 82);
-  --table-padding: 4px;
+  --table-padding: 8px 8px;
   --font-size-action: 18px;
   --font-size-inline-action: 14px;
 }
@@ -57,7 +57,20 @@ a.as-button:hover {
   background-color: rgb(50, 49, 49);
 }
 
-button.danger {  
+button {
+  font-size: var(--font-size-inline-action);
+  padding: 2px 8px;
+  font-weight: 500;
+  border: 2px solid black;
+  background-color: white;
+  cursor: pointer;
+}
+button:hover {
+  color: white;
+  background-color: rgb(50, 49, 49);
+}
+
+/* button.danger {  
   font-size: var(--font-size-inline-action);
   padding: 2px 8px;
   font-weight: 500;
@@ -65,9 +78,10 @@ button.danger {
   cursor: pointer;
   color: white;
   background-color: var(--danger-color);
-}
+} */
 button.danger:hover {
-  background-color: var(--danger-color-light);
+  color: white;
+  background-color: var(--danger-color);
 }
 
 .button-ribbon-left {
@@ -112,6 +126,7 @@ table th {
   padding: var(--table-padding);
   border-bottom: 1px solid black;
 }
+
 
 table td {
   padding: var(--table-padding);
