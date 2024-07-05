@@ -12,3 +12,17 @@ export async function deletePerson(personId) {
     await new Promise((r) => setTimeout(r, 1000));
     return db.prepare("update people set active = 0 where id = ?").run(personId);
 }
+
+/**
+    firstName: "John",
+    lastName: "Doe",
+    age: 30,
+    email: "john.doe@example.com",
+    phoneNumber: "234567890",
+    active: 1
+
+ * @param {*} person 
+ */
+export async function createPerson(person) {
+
+}
