@@ -1,3 +1,4 @@
+import Divider from "@/components/format/divider";
 import SubTitle from "@/components/format/sub-title";
 import PeopleList from "@/components/people/people-list";
 import PeopleWait from "@/components/people/people-wait";
@@ -17,7 +18,7 @@ export default async function ListPage() {
         <Suspense fallback={<PeopleWait />}>
             <PeopleList />
         </Suspense>
-        <div className="standard-divider"></div>
+        <Divider />
         <div>
             <Link href="/people" className="call-to-action">View Load Boundary Version</Link>
         </div>

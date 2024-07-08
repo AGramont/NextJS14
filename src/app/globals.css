@@ -51,7 +51,17 @@ a.as-button {
   background-color: white;
 }
 
-a.as-button:hover {
+a.as-button-action {
+  font-size: var(--font-size-inline-action);
+  line-height: 30px;
+  padding: 5.4px 18px;
+  font-weight: 500;
+  border: 2px solid black;
+  cursor: pointer;
+  background-color: white;
+}
+
+a.as-button:hover, a.as-button-action:hover {
   opacity: 1;
   color: white;
   background-color: rgb(50, 49, 49);
@@ -70,15 +80,6 @@ button:hover {
   background-color: rgb(50, 49, 49);
 }
 
-/* button.danger {  
-  font-size: var(--font-size-inline-action);
-  padding: 2px 8px;
-  font-weight: 500;
-  border: 2px solid black;
-  cursor: pointer;
-  color: white;
-  background-color: var(--danger-color);
-} */
 button.danger:hover {
   color: white;
   background-color: var(--danger-color);
@@ -184,4 +185,14 @@ tbody tr:hover {
   font-weight: 700;
   opacity: 0.8;
   margin-bottom: 8px;
+}
+
+.columns-2 {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 32px;
+  width: 100%;
+  max-width: 600px;
+  justify-items: start;
+  align-items: start;
 }

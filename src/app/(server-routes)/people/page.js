@@ -1,3 +1,4 @@
+import Divider from "@/components/format/divider";
 import SubTitle from "@/components/format/sub-title";
 import PeopleList from "@/components/people/people-list";
 import { getPeople } from "@/lib/db/peopleDB"
@@ -15,9 +16,13 @@ export default async function ListPage() {
 
     return <>
         <SubTitle subTitle="People - Loading Boundary"/>
-
-        <PeopleList />
-        <div className="standard-divider"></div>
+        <div className="columns-2">
+            <PeopleList />
+            <div className="button-ribbon-left">
+                <Link href="/people/new" className="as-button-action">Add Person</Link>
+            </div>
+        </div>
+        <Divider />
         <div>
             <Link href="/people-suspense" className="call-to-action">View Suspense Version</Link>
         </div>

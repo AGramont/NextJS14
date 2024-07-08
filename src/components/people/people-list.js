@@ -1,6 +1,5 @@
 import { getPeople } from "@/lib/db/peopleDB";
 import Link from "next/link";
-import DeletePersonAction from "@/components/action-buttons/delete-person"
 
 export default async function PeopleList() {
 

@@ -1,3 +1,4 @@
+import Divider from "./divider";
 
 
 export default function SubTitle({subTitle}) {
@@ -5,6 +6,6 @@ export default function SubTitle({subTitle}) {
         <div className="sub-title">
             <h1>{subTitle}</h1>
         </div>
-        <div className="standard-divider"></div>
+        <Divider />
     </div>
 }

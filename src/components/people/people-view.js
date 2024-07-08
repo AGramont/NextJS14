@@ -1,3 +1,5 @@
+import Link from "next/link";
+import DeletePersonAction from "@/components/action-buttons/delete-person";
 
 
 export default function ViewPerson({person}) {
@@ -23,8 +25,8 @@ export default function ViewPerson({person}) {
             <span>{person.phone ?? "[EMPTY]"}</span>
         </div>
         <div className="button-ribbon-left">
-            <button className="danger">Delete</button>
-            <button>Edit</button>
+            <DeletePersonAction personId={person.id} />
+            {/* <Link href={`/people/${person.id}`} className="as-button">Edit</Link> */}
         </div>
     </>
 }

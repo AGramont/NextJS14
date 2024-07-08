@@ -1,5 +1,6 @@
 "use client";
 import { useForm } from 'react-hook-form';
+import Divider from '../format/divider';
 
 export default function PeopleEdit({id}) {
 
@@ -19,7 +20,7 @@ export default function PeopleEdit({id}) {
             <label className="required">First Name</label>
             <input {...register("firstname", {
                 required: 'First Name is required'
-            })} />
+            })} autoFocus={true} />
             {errors.firstname && errorMessage(errors.firstname.message)}
         </div>
         <div className="form-group">
@@ -64,6 +65,7 @@ export default function PeopleEdit({id}) {
             })}  />
             {errors.phonenumber && errorMessage(errors.phonenumber.message)}
         </div>
+        <Divider />
         <div>
             <button type="submit" className="call-to-action">{
                 id === 'new' ? "Create" : "Update"

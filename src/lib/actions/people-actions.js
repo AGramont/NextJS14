@@ -11,10 +11,18 @@ import { revalidatePath } from "next/cache";
 const actionClient = createSafeActionClient();
 
 const deleteSchema = z.number();
-export const deletePerson = actionClient.schema(deleteSchema).action(async ({parsedInput}) => {
+export const deletePersonAction = actionClient.schema(deleteSchema).action(async ({parsedInput}) => {
     console.log(`deactivating person ${parsedInput} on server`);
     await deletePersonDB(parsedInput);
     revalidatePath('/people');
+})
+
+const newPersonSchema = z.object({
+    firstname: z.string(),
+    lastname: z.string(),
+    age: z.number(),
+    email: z.string(),
+    phone: z.string()
 })
 
 const getSchema = z.number();
