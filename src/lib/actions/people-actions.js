@@ -4,7 +4,7 @@
  */
 
 import { createSafeActionClient } from "next-safe-action";
-import { deletePerson as deletePersonDB, getPerson as getPersonDB } from "@/lib/db/peopleDB";
+import { deletePerson as deletePersonDB, getPerson as getPersonDB, createPerson as createPersonDB } from "@/lib/db/peopleDB";
 import { z } from "zod";
 import { revalidatePath } from "next/cache";
 
@@ -22,7 +22,13 @@ const newPersonSchema = z.object({
     lastname: z.string(),
     age: z.number(),
     email: z.string(),
-    phone: z.string()
+    phone: z.string(),
+    active: z.number()
+})
+export const createPersonAction = actionClient.schema(newPersonSchema).action(async ({parsedInput}) => {
+    console.log("new person: ", parsedInput);
+    await createPersonDB(parsedInput);
+    revalidatePath('/people');
 })
 
 const getSchema = z.number();

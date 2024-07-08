@@ -1,15 +1,23 @@
 "use client";
 import { useForm } from 'react-hook-form';
 import Divider from '../format/divider';
+import { createPersonAction } from '@/lib/actions/people-actions';
+import { useRouter } from "next/navigation";
 
 export default function PeopleEdit({id}) {
 
+    const isNew = id === 'new';
     const { register, handleSubmit, formState: {errors} } = useForm();
+    const router = useRouter();
 
-    const onSubmit = (data) => {
-        console.log("Submitting: ", data);
+    const onSubmit = async (data) => {
+        const d = {...data, age: Number(data.age), active: 1}
+        console.log("Submitting: ", d);
+        if (isNew) {
+            const response = await createPersonAction(d);
+            router.push('/people');
+        }
     }
-
     const errorMessage = (message) => {
         return <div className="text-danger">{message}</div>
     }
@@ -57,7 +65,7 @@ export default function PeopleEdit({id}) {
         </div>
         <div className="form-group">
             <label>Phone Number</label>
-            <input {...register("phonenumber", {
+            <input {...register("phone", {
                 pattern: { 
                     value: /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/,
                     message: 'Phone Number must be valid'
@@ -68,7 +76,7 @@ export default function PeopleEdit({id}) {
         <Divider />
         <div>
             <button type="submit" className="call-to-action">{
-                id === 'new' ? "Create" : "Update"
+                isNew ? "Create" : "Update"
                 }</button>
         </div>
     </form>

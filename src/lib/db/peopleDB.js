@@ -20,16 +20,17 @@ export async function deletePerson(personId) {
     return db.prepare("update people set active = 0 where id = ?").run(personId);
 }
 
-/**
-    firstName: "John",
-    lastName: "Doe",
-    age: 30,
-    email: "john.doe@example.com",
-    phoneNumber: "234567890",
-    active: 1
-
- * @param {*} person 
- */
-// export async function createPerson(person) {
-
-// }
+export async function createPerson(person) {
+    await delay();
+    const value = {...person, active: 1}
+    db.prepare(`
+        INSERT INTO people VALUES (
+            null,
+            @firstname,
+            @lastname,
+            @age,
+            @email,
+            @phone,
+            @active
+        )`).run(person);
+}

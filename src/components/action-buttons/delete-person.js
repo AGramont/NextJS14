@@ -1,6 +1,5 @@
 "use client";
 import { deletePersonAction } from "@/lib/actions/people-actions";
-import { useAction } from "next-safe-action/hooks";
 import { useRouter } from "next/navigation";
 
 export default function DeletePersonActionButton({personId}) {
