@@ -3,20 +3,27 @@ import { useForm } from 'react-hook-form';
 import Divider from '../format/divider';
 import { createPersonAction } from '@/lib/actions/people-actions';
 import { useRouter } from "next/navigation";
+import { useMemo, useState } from 'react';
 
-export default function PeopleEdit({id}) {
+export default function PeopleEdit({person}) {
 
-    const isNew = id === 'new';
+    console.log("PERSON: ", person);
+
+    const isNew = useMemo(() => !Boolean(person?.id), [person]);
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const { register, handleSubmit, formState: {errors} } = useForm();
     const router = useRouter();
+    
 
     const onSubmit = async (data) => {
+        setIsSubmitting(true);
         const d = {...data, age: Number(data.age), active: 1}
         console.log("Submitting: ", d);
         if (isNew) {
-            const response = await createPersonAction(d);
+            await createPersonAction(d);
             router.push('/people');
         }
+        setIsSubmitting(false);
     }
     const errorMessage = (message) => {
         return <div className="text-danger">{message}</div>
@@ -75,7 +82,7 @@ export default function PeopleEdit({id}) {
         </div>
         <Divider />
         <div>
-            <button type="submit" className="call-to-action">{
+            <button type="submit" className="call-to-action" disabled={isSubmitting}>{
                 isNew ? "Create" : "Update"
                 }</button>
         </div>

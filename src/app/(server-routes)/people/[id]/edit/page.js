@@ -1,11 +1,12 @@
-"use client";
-import SubTitle from "@/components/format/sub-title";
-import ViewPerson from "@/components/people/people-view";
+"use client"
+
+import { getPersonAction } from "@/lib/actions/people-actions";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { getPersonAction } from "@/lib/actions/people-actions";
+import EditPerson from "@/components/people/people-edit";
+import SubTitle from "@/components/format/sub-title";
 
-export default function ViewPersonPage() {
+export default function EditPersonPage() {
     const {id} = useParams();
     const [person, setPerson] = useState(null);
 
@@ -20,6 +21,6 @@ export default function ViewPersonPage() {
 
     return <>
         <SubTitle subTitle="People - Viewer"/>
-        {person ? <ViewPerson person={person} /> : <p>Loading...</p>}
+        {person ? <EditPerson person={person} /> : <p>Loading...</p>}
     </>
 }

@@ -26,7 +26,7 @@ export default function ViewPerson({person}) {
         </div>
         <div className="button-ribbon-left">
             <DeletePersonAction personId={person.id} />
-            {/* <Link href={`/people/${person.id}`} className="as-button">Edit</Link> */}
+            <Link href={`/people/${person.id}/edit`} className="as-button">Edit</Link>
         </div>
     </>
 }
