@@ -12,7 +12,7 @@ export default function ViewPersonPage() {
     useEffect(() => {
 
         getPersonAction(Number(id)).then(result => {
-            console.log("RESULT: ", result.data);
+            console.log("getPersonAction: ", result.data);
             setPerson(result.data);
         })
 

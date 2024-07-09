@@ -13,14 +13,14 @@ export default function EditPersonPage() {
     useEffect(() => {
 
         getPersonAction(Number(id)).then(result => {
-            console.log("RESULT: ", result.data);
+            console.log("getPersonAction: ", result.data);
             setPerson(result.data);
         })
 
     }, [])
 
     return <>
-        <SubTitle subTitle="People - Viewer"/>
+        <SubTitle subTitle="People - Edit"/>
         {person ? <EditPerson person={person} /> : <p>Loading...</p>}
     </>
 }

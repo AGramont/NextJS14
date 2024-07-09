@@ -1,28 +1,31 @@
 "use client";
 import { useForm } from 'react-hook-form';
 import Divider from '../format/divider';
-import { createPersonAction } from '@/lib/actions/people-actions';
+import { createPersonAction, editPersonAction } from '@/lib/actions/people-actions';
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from 'react';
 
 export default function PeopleEdit({person}) {
 
-    console.log("PERSON: ", person);
-
     const isNew = useMemo(() => !Boolean(person?.id), [person]);
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const { register, handleSubmit, formState: {errors} } = useForm();
+    const { register, handleSubmit, formState: {errors} } = useForm({
+        defaultValues: person
+    });
     const router = useRouter();
     
 
     const onSubmit = async (data) => {
         setIsSubmitting(true);
         const d = {...data, age: Number(data.age), active: 1}
-        console.log("Submitting: ", d);
         if (isNew) {
-            await createPersonAction(d);
-            router.push('/people');
+            const result = await createPersonAction(d);
+            console.log("Created person: ", result.data);
+        } else {
+            const result = await editPersonAction({...d, id: person.id});
+            console.log("Edited  person: ", result.data);
         }
+        router.push('/people');
         setIsSubmitting(false);
     }
     const errorMessage = (message) => {
@@ -78,7 +81,7 @@ export default function PeopleEdit({person}) {
                     message: 'Phone Number must be valid'
                 }
             })}  />
-            {errors.phonenumber && errorMessage(errors.phonenumber.message)}
+            {errors.phone && errorMessage(errors.phone.message)}
         </div>
         <Divider />
         <div>
