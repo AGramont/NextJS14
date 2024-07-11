@@ -1,7 +1,7 @@
 "use client";
 import SubTitle from "@/components/format/sub-title";
 import ViewPerson from "@/components/people/people-view";
-import { notFound, useParams } from "next/navigation";
+import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { getPersonAction } from "@/lib/actions/people-actions";
 
