@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { getPersonAction } from "@/lib/actions/people-actions";
 import { useParams } from "next/navigation";
@@ -7,20 +7,20 @@ import EditPerson from "@/components/people/people-edit";
 import SubTitle from "@/components/format/sub-title";
 
 export default function EditPersonPage() {
-    const {id} = useParams();
-    const [person, setPerson] = useState(null);
+  const { id } = useParams();
+  const [person, setPerson] = useState(null);
 
-    useEffect(() => {
+  useEffect(() => {
+    getPersonAction(Number(id)).then((result) => {
+      console.log("getPersonAction: ", result.data);
+      setPerson(result.data);
+    });
+  }, [id]);
 
-        getPersonAction(Number(id)).then(result => {
-            console.log("getPersonAction: ", result.data);
-            setPerson(result.data);
-        })
-
-    }, [])
-
-    return <>
-        <SubTitle subTitle="People - Edit"/>
-        {person ? <EditPerson person={person} /> : <p>Loading...</p>}
+  return (
+    <>
+      <SubTitle subTitle="People - Edit" />
+      {person ? <EditPerson person={person} /> : <p>Loading...</p>}
     </>
+  );
 }
